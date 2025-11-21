@@ -45,12 +45,6 @@ The app reads `VITE_BASE_URL` at build/runtime and falls back to `window.locatio
 
 This file is copied into `dist/` at build time and Netlify will serve `index.html` for all routes.
 
-**Notes about recent changes**
-- QR code generation/storage was removed. The `qr` field and upload logic have been removed from `src/db/apiUrls.js` and QR UI removed from components.
-- Short URLs and copy/display behavior now use a helper `getBaseUrl()` in `src/lib/utils.js` which prefers `VITE_BASE_URL`.
-- Signup flow fixes: `src/hooks/use-fetch.js` and `src/components/signup.jsx` were updated so signup payloads are forwarded correctly and navigation occurs on successful signup.
-- Redirect handling: `src/pages/redirect-link.jsx` was updated to fetch the long URL at runtime and only call `storeClicks` with the resolved data so redirects occur reliably.
-
 
 
 #
