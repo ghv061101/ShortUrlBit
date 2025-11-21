@@ -51,28 +51,6 @@ This file is copied into `dist/` at build time and Netlify will serve `index.htm
 - Signup flow fixes: `src/hooks/use-fetch.js` and `src/components/signup.jsx` were updated so signup payloads are forwarded correctly and navigation occurs on successful signup.
 - Redirect handling: `src/pages/redirect-link.jsx` was updated to fetch the long URL at runtime and only call `storeClicks` with the resolved data so redirects occur reliably.
 
-**Troubleshooting**
-- If a deployed short URL returns a 404 on Netlify, ensure:
-	- `public/_redirects` is present in the deployed `dist/` (Netlify should pick it up if it’s in the repo at build time).
-	- The short code exists in the Supabase `urls` table (`short_url` or `custom_url`). Example check script:
 
-```powershell
-node scripts/checkShort.js <short_code>
-```
-
-You may need to install `dotenv` to run the script locally:
-
-```powershell
-npm i dotenv
-```
-
-**Deploy**
-- Push your changes to the branch Netlify watches; Netlify will rebuild and publish. Example:
-
-```powershell
-git add .
-git commit -m "Deploy: SPA redirect and base-url config"
-git push origin main
-```
 
 #
